@@ -1,0 +1,57 @@
+/* ========================== */
+/*        FOOTER              */
+/* ========================== */
+
+.footer {
+  background: var(--color-primary);
+  color: var(--color-light);
+  padding: 2.8rem 1.6rem;
+  text-align: center;
+  border-top: 3px solid var(--color-secondary);
+}
+
+/* CONTENEDOR GENERAL */
+.footer-contenido {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* LOGO PUCE */
+.puce-logo {
+  width: 140px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* TEXTO */
+.footer-texto {
+  font-size: 0.95rem;
+  line-height: 1.55rem;
+  opacity: 0.9;
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  letter-spacing: 0.3px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  padding-top: 1rem;
+}
+
+/* ========================== */
+/* RESPONSIVE                 */
+/* ========================== */
+
+@media (max-width: 480px) {
+  .puce-logo {
+    width: 120px;
+  }
+
+  .footer-texto {
+    font-size: 0.88rem;
+  }
+}

@@ -1,0 +1,179 @@
+/* ========================== */
+/*         NUTRIPUEBLO        */
+/*   Diseño global refinado   */
+/* ========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+/* PALETA */
+:root {
+  --color-primary: #8B4513;       /* cacao */
+  --color-secondary: #FFD27F;     /* maíz */
+  --color-light: #FFF8E7;         /* crema */
+  --color-dark: #2D2D2D;          /* negro suave */
+  --color-accent: #C08552;        /* terracota */
+  --color-hover: #E5A74B;         /* maíz tostado */
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================== */
+/*         TIPOGRAFÍA         */
+/* ========================== */
+
+body {
+  font-family: 'Merriweather', serif;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.8px;
+}
+
+p, li, span {
+  font-weight: 300;
+  font-size: 0.97rem;
+}
+
+/* ========================== */
+/*      HERO SECTIONS         */
+/* ========================== */
+
+.hero-nutripueblo {
+  background-size: cover;
+  background-position: center;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2rem;
+  color: white;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.hero-nutripueblo h1 {
+  font-size: 3rem;
+  letter-spacing: 1.4px;
+}
+
+.hero-nutripueblo p {
+  font-size: 1.15rem;
+  max-width: 680px;
+}
+
+/* ========================== */
+/*         TARJETAS           */
+/* ========================== */
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.card-text {
+  font-size: 0.98rem;
+  color: var(--color-dark);
+}
+
+/* ========================== */
+/*         BOTONES            */
+/* ========================== */
+
+button,
+.btn,
+.btn-primary,
+.btn-nutripueblo {
+  border-radius: 30px !important;
+  padding: 0.75rem 1.9rem;
+  font-size: 1rem;
+  background-color: var(--color-primary) !important;
+  border: none;
+  font-weight: 600;
+  color: var(--color-light) !important;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+button:hover,
+.btn-primary:hover,
+.btn-nutripueblo:hover {
+  background-color: var(--color-accent) !important;
+  transform: scale(1.06);
+}
+
+/* ========================== */
+/*         IMÁGENES           */
+/* ========================== */
+
+img {
+  border-radius: 14px;
+  object-fit: cover;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+img:hover {
+  transform: scale(1.07);
+  filter: brightness(1.05);
+}
+
+/* ========================== */
+/*         SECCIONES          */
+/* ========================== */
+
+section {
+  padding: 3.8rem 0; /* MÁS ESPACIO */
+}
+
+.container,
+.container-fluid {
+  max-width: 1240px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* ========================== */
+/*     TEXTO DESTACADO        */
+/* ========================== */
+
+.highlight {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* ========================== */
+/*     LISTA PERSONALIZADA    */
+/* ========================== */
+
+ul li {
+  padding-left: 0.6rem;
+  margin-bottom: 0.45rem;
+}

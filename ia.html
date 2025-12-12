@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat IA - Vital Andina</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #respuesta {
+      margin-top: 1rem;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Tienes una pregunta sobre nutrición andina?</h1>
+
+  <form id="formularioIA">
+    <input type="text" id="pregunta" placeholder="Escribe tu pregunta..." required>
+    <button type="submit">Preguntar</button>
+  </form>
+
+  <div id="respuesta"></div>
+
+  <script>
+    const form = document.getElementById("formularioIA");
+    const respuestaDiv = document.getElementById("respuesta");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const pregunta = document.getElementById("pregunta").value;
+
+      try {
+        const res = await fetch("https://apivitalandina.puceecoexplora.com/api/alimentos/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ prompt: pregunta }),
+        });
+
+        const data = await res.json();
+
+        if (data.choices && data.choices.length > 0) {
+          respuestaDiv.innerText = data.choices[0].message.content;
+        } else {
+          respuestaDiv.innerText = "La IA no pudo generar una respuesta.";
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        respuestaDiv.innerText = "Error al conectar con la IA.";
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+/* ========================== */
+/*        NUTRIPUEBLO         */
+/*    Estilo unificado pro    */
+/* ========================== */
+
+:root {
+  --color-primary: #8B4513;
+  --color-secondary: #FFD27F;
+  --color-light: #FFF8E7;
+  --color-dark: #2D2D2D;
+  --color-accent: #C08552;
+  --color-hover: #E5A74B;
+}
+
+/* ========================== */
+/* GLOBAL                     */
+/* ========================== */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: var(--color-light);
+  font-family: 'Merriweather', serif;
+  color: var(--color-dark);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  transition: transform 0.38s ease;
+}
+
+img:hover {
+  transform: scale(1.06);
+}
+
+/* ========================== */
+/* NAVBAR                     */
+/* ========================== */
+
+.navbar {
+  background-color: var(--color-primary) !important;
+  padding: 1rem 1.2rem;
+  border-bottom: 2px solid var(--color-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  color: var(--color-secondary) !important;
+  letter-spacing: 1px;
+}
+
+.navbar-brand:hover {
+  color: var(--color-hover) !important;
+}
+
+.nav-link {
+  color: var(--color-light) !important;
+  font-weight: 600;
+  font-size: 1.08rem;
+  border-radius: 6px;
+  padding: 6px 12px;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--color-accent);
+}
+
+.active-link-nutripueblo {
+  background-color: var(--color-secondary) !important;
+  color: var(--color-primary) !important;
+  font-weight: 800;
+  border-radius: 6px;
+}
+
+/* ========================== */
+/* HERO SLIDER                */
+/* ========================== */
+
+.home-hero-carousel {
+  width: 100%;
+  height: 85vh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  filter: brightness(0.78) contrast(1.15);
+  opacity: 0;
+  transition: opacity 1.3s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg,
+    rgba(0,0,0,0.78) 0%,
+    rgba(0,0,0,0.35) 48%,
+    rgba(0,0,0,0.25) 100%);
+  z-index: 3;
+}
+
+.hero-carousel-content {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  text-align: center;
+  color: white;
+  max-width: 750px;
+}
+
+/* FLECHAS */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  border: 2px solid rgba(255,210,127,0.55);
+  width: 48px;
+  height: 48px;
+  color: var(--color-secondary);
+  font-size: 1.7rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+}
+
+.hero-arrow.left { left: 26px; }
+.hero-arrow.right { right: 26px; }
+
+.hero-arrow:hover {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  transform: translateY(-50%) scale(1.12);
+}
+
+/* TITULOS HERO */
+.home-hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-shadow: 0 6px 22px rgba(0,0,0,0.8);
+}
+
+.home-hero-subtitle {
+  font-size: 1.05rem;
+  margin-top: 1rem;
+}
+
+/* ========================== */
+/* PILARES                    */
+/* ========================== */
+
+.home-pilares-np {
+  padding: 3.5rem 0;
+  background: var(--color-light);
+  text-align: center;
+}
+
+.home-section-title {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.home-section-subtitle {
+  opacity: 0.8;
+  margin-bottom: 2.4rem;
+}
+
+
+/* ========================== */
+/* TARJETAS PILARES FIX       */
+/* ========================== */
+
+.home-step-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem 1.4rem;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-step-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+.home-step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-light);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.home-step-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  margin-top: 0.6rem;
+}
+
+.home-step-link:hover {
+  text-decoration: underline;
+  color: var(--color-hover);
+}
+
+
+/* ========================== */
+/* BOTONES HERO               */
+/* ========================== */
+
+.btn-nutripueblo {
+  background-color: var(--color-secondary) !important;
+  border-radius: 999px;
+  color: var(--color-primary);
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  transition: 0.25s ease;
+}
+
+.btn-nutripueblo:hover {
+  background-color: var(--color-hover) !important;
+  color: var(--color-light);
+  transform: scale(1.05);
+}
+
+.btn-nutripueblo-outline {
+  border-radius: 999px;
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  transition: 0.25s ease;
+}
+
+.btn-nutripueblo-outline:hover {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+
+/* ========================== */
+/* FOOTER NUEVO               */
+/* ========================== */
+
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  text-align: center;
+  padding: 1.6rem 0;
+  border-top: 3px solid var(--color-secondary);
+}
+
+.footer-puce-logo {
+  width: 115px;
+  margin-bottom: 0.5rem;
+}
+
+footer p {
+  margin: 0.3rem 0;
+  font-size: 0.88rem;
+  letter-spacing: 0.4px;
+}
+
+/* ========================== */
+/* RESPONSIVE FINAL           */
+/* ========================== */
+
+@media (max-width: 768px) {
+  .home-hero-carousel { height: 62vh; }
+  .home-hero-title { font-size: 1.85rem; }
+  .hero-arrow { width: 36px; height: 36px; }
+}
+
+@media (max-width: 480px) {
+  .home-hero-carousel { height: 55vh; }
+  .home-hero-title { font-size: 1.6rem; }
+  .hero-arrow { width: 32px; height: 32px; }
+}
+
+/* ========================== */
+/*   FIX RESPONSIVE HERO UI   */
+/* ========================== */
+
+@media (max-width: 768px) {
+
+  .hero-carousel-content {
+    bottom: 10%;
+    text-align: center !important;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+
+  .home-hero-title {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+
+  .home-hero-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.35rem;
+    padding: 0 1rem;
+  }
+
+  .btn-nutripueblo,
+  .btn-nutripueblo-outline {
+    display: block;
+    width: 85%;
+    margin: 0.45rem auto;
+    font-size: 0.9rem;
+    padding: 0.65rem;
+  }
+}
+
+/* ========================== */
+/* TARJETAS 1-2-3-4 (PILARES) */
+/* ========================== */
+
+.home-step-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem 1.4rem;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.home-step-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+.home-step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 0 auto 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-light);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.home-step-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  margin-top: 0.6rem;
+}
+
+.home-step-link:hover {
+  text-decoration: underline;
+  color: var(--color-hover);
+}
+

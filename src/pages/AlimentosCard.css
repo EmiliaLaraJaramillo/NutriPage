@@ -1,0 +1,35 @@
+.alimento-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alimento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.alimento-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.alimento-content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.alimento-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #2f6128;
+}
+
+.alimento-content p {
+  color: #5e5e5e;
+  font-size: 0.95rem;
+}

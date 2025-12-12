@@ -1,0 +1,199 @@
+/* ================================
+   ESTILO PÁGINA BIENESTAR (DELUXE COLOR REFORZADO)
+================================= */
+
+.bienestar-page {
+  background-color: #fff7ea;
+  color: #4a2a14;
+  min-height: 100vh;
+}
+
+/* ================= HERO ================= */
+
+.bienestar-hero {
+  position: relative;
+  height: 75vh;
+  background-size: cover !important;
+  background-position: center top;
+  background-repeat: no-repeat !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  filter: contrast(1.07) saturate(1.06);
+}
+
+.bienestar-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.58)
+  );
+  pointer-events: none;
+}
+
+.bienestar-hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+/* ================= FLECHAS ================= */
+
+.bienestar-flechas {
+  position: absolute;
+  bottom: 3.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.flecha {
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  background: rgba(0, 0, 0, 0.38);
+  color: #fff;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 1.38rem;
+  transition: 0.28s ease-in-out;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(9px);
+}
+
+.flecha:hover {
+  background: rgba(255, 255, 255, 0.78);
+  color: #5a3511;
+  transform: translateY(-3px) scale(1.12);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55);
+}
+
+/* ================= SECCIÓN INFO ================= */
+
+.bienestar-section {
+  background: #fff7ea;
+  padding: 4.2rem 1.5rem 5.2rem;
+  border-top: 2px solid #e4ccb0;
+}
+
+.bienestar-section h2 {
+  text-align: center;
+  font-size: 2.45rem;
+  font-weight: 800;
+  color: #5c3815;
+  margin-bottom: 0.8rem;
+}
+
+.bienestar-intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.8rem;
+  font-size: 1.12rem;
+  color: #4a2a14;
+  line-height: 1.55;
+}
+
+/* ================= TARJETAS PREMIUM + COLOR ================= */
+
+.bienestar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  gap: 2.4rem;
+  padding: 0 1rem;
+  margin-top: 2rem;
+}
+
+/* 🎨 COLOR reforzado para resaltar */
+.bienestar-card {
+  background: linear-gradient(145deg, #ffeec8, #f2c98d); /* tono maíz - cálido */
+  border-radius: 20px;
+  padding: 2rem 1.6rem;
+  border: 2px solid #bf7729;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.18),
+    inset 0 0 8px rgba(255, 255, 255, 0.55);
+  text-align: center;
+  transition: 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bienestar-card .icono {
+  font-size: 2.6rem;
+  margin-bottom: 0.75rem;
+  display: block;
+  opacity: 0.95;
+}
+
+.bienestar-card h3 {
+  font-size: 1.38rem;
+  font-weight: 800;
+  color: #4a2a14;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.45px;
+}
+
+.bienestar-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(to right, #c37a3a, #b5651e, #c37a3a);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* HOVER vibrante pero elegante */
+.bienestar-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.22),
+    inset 0 0 16px rgba(255, 255, 255, 0.7);
+  border-color: #e3a65e;
+  background: linear-gradient(145deg, #ffe7b1, #efbb78);
+}
+
+.bienestar-card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.9rem;
+}
+
+.bienestar-card li {
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+  color: #4a2a14;
+  line-height: 1.52;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .bienestar-hero {
+    height: 70vh;
+  }
+
+  .bienestar-flechas {
+    bottom: 1.8rem;
+  }
+
+  .flecha {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+}

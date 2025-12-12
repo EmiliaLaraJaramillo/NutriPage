@@ -1,0 +1,883 @@
+/* src/pages/NutricionIA.css - VERSIÓN MEJORADA */
+.nutricion-ia-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  background: white;
+  border-radius: 25px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  color: #2c3e50;
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  color: #7f8c8d;
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* Consejo flotante */
+.consejo-flotante {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 18px;
+  padding: 25px;
+  margin: 30px auto;
+  border-left: 6px solid #2196f3;
+  max-width: 800px;
+  box-shadow: 0 10px 25px rgba(33, 150, 243, 0.15);
+}
+
+.consejo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.consejo-header span {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cerrar-consejo {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #666;
+  padding: 0 10px;
+  transition: color 0.3s;
+}
+
+.cerrar-consejo:hover {
+  color: #333;
+}
+
+.consejo-flotante p {
+  color: #0d47a1;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.fecha-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #90caf9;
+}
+
+.fecha-text {
+  color: #0d47a1;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ia-badge {
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ia-real {
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.ia-ejemplo {
+  background: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+/* Concientización */
+.concientizacion-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 30px;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.concientizacion-card h2 {
+  color: #27ae60;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.concientizacion-card p {
+  color: #34495e;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+/* Grid de proporciones */
+.proporciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.proporcion-item {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.proporcion-item:hover {
+  transform: translateY(-10px);
+  border-color: #27ae60;
+  box-shadow: 0 20px 40px rgba(39, 174, 96, 0.15);
+}
+
+.proporcion-icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.proporcion-item:hover .proporcion-icon {
+  transform: scale(1.1);
+}
+
+.proporcion-item h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.proporcion-item p {
+  color: #7f8c8d;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.proporcion-tag {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+/* ===== MENÚ SECTION ===== */
+.menu-section {
+  margin: 60px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.section-header h2 {
+  color: #2c3e50;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.section-description {
+  color: #7f8c8d;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Acciones del menú */
+.menu-acciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.btn-generar-menu {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  font-size: 1.2rem;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-generar-menu:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.5);
+}
+
+.btn-generar-menu:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.badge-presupuesto {
+  background: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+/* Estados de carga */
+.cargando-container {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.spinner-ia {
+  width: 80px;
+  height: 80px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #27ae60;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  margin: 0 auto 40px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cargando-container h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.cargando-container p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ===== COMIDAS ===== */
+.menu-real {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.comida-card {
+  background: white;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.comida-card:hover {
+  transform: translateY(-5px);
+}
+
+.comida-desayuno {
+  border-top: 6px solid #FFC107;
+}
+
+.comida-almuerzo {
+  border-top: 6px solid #4CAF50;
+}
+
+.comida-merienda {
+  border-top: 6px solid #2196F3;
+}
+
+.comida-cena {
+  border-top: 6px solid #9C27B0;
+}
+
+.comida-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid #f5f5f5;
+}
+
+.comida-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.comida-hora {
+  background: #f8f9fa;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+  border: 1px solid #e9ecef;
+}
+
+.nombre-plato {
+  color: #2c3e50;
+  margin: 20px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.comida-detalles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+@media (max-width: 768px) {
+  .comida-detalles {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.detalle-columna h5 {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ingredientes */
+.ingredientes-lista {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #e9ecef;
+}
+
+.ingrediente-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ingrediente-item:last-child {
+  border-bottom: none;
+}
+
+.ingrediente-nombre {
+  font-weight: 600;
+  color: #333;
+  min-width: 150px;
+  font-size: 1.1rem;
+}
+
+.ingrediente-cantidad {
+  color: #27ae60;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.ingrediente-notas {
+  color: #888;
+  font-style: italic;
+  font-size: 0.95rem;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Macronutrientes */
+.macronutrientes {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #e9ecef;
+}
+
+.macro-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e9ecef;
+  align-items: center;
+}
+
+.macro-item:last-child {
+  border-bottom: none;
+}
+
+.macro-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.macro-valor {
+  color: #27ae60;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: white;
+  padding: 6px 15px;
+  border-radius: 15px;
+  border: 1px solid #e9ecef;
+}
+
+/* Preparación */
+.preparacion-container {
+  margin-top: 35px;
+  padding-top: 35px;
+  border-top: 2px solid #f5f5f5;
+}
+
+.preparacion-container h5 {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tiempo-preparacion {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  color: #1565c0;
+  padding: 12px 25px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: 1px solid #bbdefb;
+}
+
+.pasos-preparacion {
+  padding-left: 30px;
+  margin-top: 20px;
+}
+
+.paso-preparacion {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: #444;
+  font-size: 1.1rem;
+  padding-left: 10px;
+  position: relative;
+}
+
+.paso-preparacion:before {
+  content: "→";
+  position: absolute;
+  left: -25px;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+/* Variante */
+.variante-container {
+  background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 30px;
+  border-left: 6px solid #FFC107;
+}
+
+.variante-container h6 {
+  color: #FF9800;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.variante-container p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* ===== LISTA DE COMPRAS Y NOTAS ===== */
+.info-adicional {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .info-adicional {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lista-compras {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  padding: 30px;
+  border-radius: 20px;
+  border-left: 6px solid #4CAF50;
+}
+
+.lista-compras h4 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.compras-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.compra-tag {
+  background: white;
+  color: #2e7d32;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 2px solid #a5d6a7;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.compra-tag:hover {
+  background: #2e7d32;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+/* Notas importantes */
+.notas-importantes {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+  padding: 30px;
+  border-radius: 20px;
+  border-left: 6px solid #9C27B0;
+}
+
+.notas-importantes h4 {
+  color: #7b1fa2;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notas-importantes ul {
+  padding-left: 25px;
+}
+
+.notas-importantes li {
+  margin-bottom: 15px;
+  color: #444;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  position: relative;
+  padding-left: 10px;
+}
+
+.notas-importantes li:before {
+  content: "•";
+  color: #9C27B0;
+  font-weight: bold;
+  font-size: 1.3rem;
+  position: absolute;
+  left: -15px;
+}
+
+/* ===== ERROR ===== */
+.error-container {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  border-radius: 20px;
+  border: 2px dashed #f44336;
+  margin: 40px 0;
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-20px); }
+}
+
+.error-container h3 {
+  color: #c62828;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.btn-intentar {
+  background: linear-gradient(135deg, #f44336 0%, #ef5350 100%);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-intentar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(244, 67, 54, 0.4);
+}
+
+/* ===== INFO SECTION ===== */
+.info-section {
+  background: white;
+  border-radius: 25px;
+  padding: 50px;
+  margin-top: 60px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.info-section h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 50px;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.paso {
+  background: #f8f9fa;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s ease;
+  border: 2px solid #e9ecef;
+}
+
+.paso:hover {
+  transform: translateY(-10px);
+  border-color: #27ae60;
+  box-shadow: 0 20px 40px rgba(39, 174, 96, 0.15);
+}
+
+.paso-numero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 auto 25px;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.paso h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.paso p {
+  color: #7f8c8d;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.ia-info {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px;
+  border-radius: 20px;
+  margin-top: 40px;
+  border-left: 6px solid #667eea;
+}
+
+.ia-info h4 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ia-info p {
+  color: #34495e;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nutricion-ia-container {
+    padding: 20px 15px;
+  }
+  
+  .hero-section, .concientizacion-card, .section-header, .info-section {
+    padding: 25px;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .proporciones-grid, .pasos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .comida-card {
+    padding: 25px;
+  }
+  
+  .btn-generar-menu {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 25px;
+  }
+  
+  .menu-acciones {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .consejo-flotante, .variante-container, .lista-compras, .notas-importantes {
+    padding: 20px;
+  }
+  
+  .fecha-menu {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}
