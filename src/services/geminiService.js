@@ -1,9 +1,9 @@
 // src/services/geminiService.js - VERSIÓN CORREGIDA (3 COMIDAS)
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import { alimentosEcuador, preparacionesTipicas, recomendacionesEspeciales } from '../data/alimentosEcuador';
 
+import { alimentosEcuador, preparacionesTipicas, recomendacionesEspeciales } from '../data/alimentosEcuador';
+const geminiDisponible = true;
 // API Key desde variables de entorno
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+/*const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 // ===== DEPURACIÓN INICIAL =====
 console.log('=== 🔧 CONFIGURACIÓN GEMINI ===');
@@ -29,7 +29,7 @@ if (API_KEY && API_KEY !== 'tu_clave_aqui_pega_la_clave' && API_KEY.length > 30)
     API_KEY === 'tu_clave_aqui_pega_la_clave' ? 'API Key de ejemplo' : 
     'API Key muy corta (' + API_KEY.length + ' caracteres)');
 }
-
+*/
 // ===== PROMPT COMPLETO (SOLO 3 COMIDAS) =====
 const construirPrompt = () => {
   return `
@@ -171,206 +171,63 @@ Responde ÚNICAMENTE con el JSON, sin explicaciones adicionales.
 `;
 };
 
+
+
+
 // ===== FUNCIÓN PRINCIPAL =====
 export const generarMenuDelDia = async () => {
-  console.log('=== 🚀 INICIANDO GENERACIÓN DE MENÚ ===');
-  console.log('🔍 Gemini disponible:', geminiDisponible);
-  
-  // Si Gemini no está disponible, usar demo
+  console.log('🤖 Generando menú con IA...');
+
   if (!geminiDisponible) {
-    console.log('🔶 Generando menú de ejemplo (modo demo)');
-    const menuEjemplo = await generarMenuEjemploEcuador();
-    console.log('✅ Menú de ejemplo generado');
-    return menuEjemplo;
+    return await generarMenuEjemploEcuador();
   }
 
   try {
-    console.log('🤖 Consultando a Gemini...');
-   const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     const prompt = construirPrompt();
-    
-    console.log('📤 Enviando prompt... (longitud:', prompt.length, 'caracteres)');
-    
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
-    
-    console.log('✅ Respuesta recibida de Gemini');
-    console.log('📄 Primeros 300 caracteres:', text.substring(0, 300) + (text.length > 300 ? '...' : ''));
-    
-    // Procesar y limpiar la respuesta
+
+    const response = await fetch('/api/gemini', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
+
+    if (!response.ok) {
+      throw new Error('Error al consultar Gemini');
+    }
+
+    const data = await response.json();
+    const text = data.text;
+
     const menuProcesado = procesarRespuestaGemini(text);
-    
-    // Agregar metadata
     menuProcesado.generadoConIA = true;
     menuProcesado.fechaGeneracion = new Date().toISOString();
-    
-    console.log('✅ Menú procesado correctamente');
+
     return menuProcesado;
-    
+
   } catch (error) {
-    console.error('❌ Error con Gemini:', error);
-    console.error('❌ Detalles del error:', {
-      nombre: error.name,
-      mensaje: error.message,
-      tipo: error.constructor.name
-    });
-    
-    // Si hay error, usar menú de ejemplo
-    console.log('🔄 Usando menú de ejemplo por error');
+    console.error('❌ Error IA:', error);
     return await generarMenuEjemploEcuador();
   }
 };
 
 // ===== PROCESAR RESPUESTA =====
 const procesarRespuestaGemini = (textoRespuesta) => {
-  try {
-    // Limpiar respuesta
-    let jsonText = textoRespuesta.trim();
-    
-    // Remover markdown si existe
-    jsonText = jsonText.replace(/```json\s*/g, '');
-    jsonText = jsonText.replace(/```\s*/g, '');
-    
-    // Parsear JSON
-    const menuData = JSON.parse(jsonText);
-    
-    console.log('✅ JSON parseado correctamente');
-    console.log('📊 Estructura del menú:', {
-      fecha: menuData.fecha,
-      tieneDesayuno: !!menuData.desayuno,
-      tieneAlmuerzo: !!menuData.almuerzo,
-      tieneMerienda: !!menuData.merienda,
-      camposDesayuno: menuData.desayuno ? Object.keys(menuData.desayuno) : []
-    });
-    
-    return menuData;
-    
-  } catch (error) {
-    console.error('❌ Error procesando respuesta de Gemini:', error);
-    console.error('❌ Texto que falló:', textoRespuesta.substring(0, 200));
-    throw error; // Re-lanzar para manejar en la función principal
-  }
+  let jsonText = textoRespuesta.trim();
+  jsonText = jsonText.replace(/```json\s*/g, '');
+  jsonText = jsonText.replace(/```\s*/g, '');
+  return JSON.parse(jsonText);
 };
 
-// ===== MENÚ DE EJEMPLO (SOLO 3 COMIDAS) =====
+// ===== MENÚ DEMO =====
 const generarMenuEjemploEcuador = async () => {
-  const hoy = new Date();
-  const formatoFecha = new Intl.DateTimeFormat('es-EC', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }).format(hoy);
-  
   return {
-    fecha: formatoFecha,
-    consejo_del_dia: "Combina leguminosas con cereales para obtener proteína completa. Ej: arroz con lentejas.",
-    generadoConIA: false,
-    fechaGeneracion: hoy.toISOString(),
-    
-    desayuno: {
-      plato: "Colada de Avena con Huevo y Plátano",
-      hora_recomendada: "6:30 - 7:30 AM",
-      ingredientes: [
-        { nombre: "avena", cantidad: "4 cucharadas", notas: "en hojuelas" },
-        { nombre: "huevo", cantidad: "1 unidad", notas: "preferiblemente criollo" },
-        { nombre: "plátano", cantidad: "1/2 unidad", notas: "maduro, en rodajas" },
-        { nombre: "panela", cantidad: "1 cucharadita", notas: "rallada (opcional)" },
-        { nombre: "canela", cantidad: "1 pizca", notas: "en rama o polvo" },
-        { nombre: "leche", cantidad: "1 taza", notas: "o agua" }
-      ],
-      macronutrientes: {
-        proteina: "18 g (origen: huevo y avena)",
-        carbohidratos: "45 g (tipo: complejos de avena y plátano)",
-        vegetales: "0 g",
-        calorias_totales: "320-350 kcal"
-      },
-      preparacion: [
-        "1. En una olla, calentar la leche o agua con la canela",
-        "2. Agregar la avena y cocinar por 10 minutos, revolviendo",
-        "3. En otra sartén, cocinar el huevo revuelto o frito",
-        "4. Servir la colada caliente con el plátano en rodajas",
-        "5. Acompañar con el huevo al lado"
-      ],
-      tiempo_preparacion: "15-20 minutos",
-      costo_aproximado: "Bajo",
-      variante_sin: "Sin huevo: agregar más avena y semillas de zapallo"
-    },
-    
-    almuerzo: {
-      plato: "Locro de Papa con Queso y Aguacate",
-      hora_recomendada: "1:00 PM",
-      ingredientes: [
-        { nombre: "papa", cantidad: "2 unidades medianas", notas: "pelada y en cubos" },
-        { nombre: "cebolla larga", cantidad: "1/2 unidad", notas: "picada finamente" },
-        { nombre: "queso fresco", cantidad: "50 g", notas: "en cubos" },
-        { nombre: "aguacate", cantidad: "1/4 unidad", notas: "en rebanadas" },
-        { nombre: "arvejas", cantidad: "3 cucharadas", notas: "frescas o secas remojadas" },
-        { nombre: "achiote", cantidad: "1/2 cucharadita", notas: "para color" },
-        { nombre: "leche", cantidad: "1/2 taza", notas: "o agua" },
-        { nombre: "sal", cantidad: "al gusto", notas: "" }
-      ],
-      macronutrientes: {
-        proteina: "22 g (origen: queso y arvejas)",
-        carbohidratos: "55 g (tipo: complejos de papa)",
-        vegetales: "150 g (papa, cebolla, arvejas)",
-        calorias_totales: "450-500 kcal"
-      },
-      preparacion: [
-        "1. En una olla, sofreír la cebolla con achiote",
-        "2. Agregar las papas y arvejas, rehogar 5 minutos",
-        "3. Añadir agua o leche hasta cubrir, cocinar 20 minutos",
-        "4. Cuando las papas estén blandas, agregar el queso",
-        "5. Servir caliente con aguacate por encima"
-      ],
-      tiempo_preparacion: "35-40 minutos",
-      costo_aproximado: "Bajo",
-      variante_sin: "Sin queso: usar más arvejas y agregar maní molido"
-    },
-    
-    merienda: {
-      plato: "Batido de Papaya con Semillas de Zapallo",
-      hora_recomendada: "4:30 PM",
-      ingredientes: [
-        { nombre: "papaya", cantidad: "1 taza", notas: "pelada y en cubos" },
-        { nombre: "semillas de zapallo", cantidad: "1 cucharada", notas: "peladas" },
-        { nombre: "hierbaluisa", cantidad: "3 hojas", notas: "frescas" },
-        { nombre: "agua", cantidad: "1/2 taza", notas: "fría" },
-        { nombre: "miel", cantidad: "1 cucharadita", notas: "opcional" }
-      ],
-      macronutrientes: {
-        proteina: "8 g (origen: semillas de zapallo)",
-        carbohidratos: "25 g (tipo: naturales de papaya)",
-        vegetales: "200 g (papaya)",
-        calorias_totales: "150-180 kcal"
-      },
-      preparacion: [
-        "1. Licuar la papaya con el agua y hierbaluisa",
-        "2. Moler ligeramente las semillas de zapallo",
-        "3. Servir el batido y espolvorear las semillas",
-        "4. Endulzar con miel si se desea"
-      ],
-      tiempo_preparacion: "5 minutos",
-      costo_aproximado: "Bajo",
-      variante_sin: "Sin semillas: usar maní tostado molido"
-    },
-    
-    lista_compras_dia: [
-      "avena", "huevos", "plátano", "panela", "papa", "queso fresco",
-      "aguacate", "arvejas", "papaya", "semillas de zapallo"
-    ],
-    presupuesto_diario_estimado: "Bajo (menos de $3)",
-    notas_importantes: [
-      "Las leguminosas deben remojarse desde la noche anterior",
-      "Aprovechar las hierbas aromáticas del huerto familiar",
-      "Guardar sobras en recipientes limpios para el día siguiente"
-    ]
+    fecha: 'Menú de ejemplo',
+    consejo_del_dia: 'Combina cereales y leguminosas',
+    generadoConIA: false
   };
 };
 
-// ===== FUNCIÓN PARA REGENERAR =====
+// ===== REGENERAR =====
 export const regenerarMenu = async () => {
-  console.log('🔄 Regenerando menú...');
   return await generarMenuDelDia();
 };
