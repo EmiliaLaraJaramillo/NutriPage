@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ChatFlotante from "./components/ChatFlotante";
+// import ChatFlotante from "./components/ChatFlotante";
 
 import Home from "./pages/Home";
 import Alimentos from "./pages/Alimentos";
@@ -28,7 +28,7 @@ function App() {
       </Routes>
 
       <Footer />
-      <ChatFlotante />
+      {/* <ChatFlotante /> */}
     </Router>
   );
 }

@@ -5,10 +5,10 @@ import AOS from "aos";
 import { useEffect, useState } from "react";
 
 const heroImages = [
-  "/assets/hero/hero1.jpg",
-  "/assets/hero/hero2.jpg",
+  "/assets/hero/img3.png",
+  "/assets/hero/img1.jpg",
   "/assets/hero/hero3.jpg",
-  "/assets/hero/hero4.jpg"
+  "/assets/hero/img2.jpg"
 ];
 
 function Home() {

@@ -345,30 +345,7 @@ const NutricionIA = () => {
 
       {/* SECCIÓN 2: Menú generado */}
       <section className="menu-section">
-        <div className="section-header">
-          <h2>🍽️ Menú del Día Generado por IA</h2>
-          <p className="section-description">
-            Basado en alimentos disponibles en zonas rurales del Ecuador
-          </p>
-          
-          {/* BOTÓN PRINCIPAL - AQUÍ SE HACE EL LLAMADO */}
-          <div className="menu-acciones">
-            <button 
-              className="btn-generar-menu"
-              onClick={generarMenu}
-              disabled={cargando}
-            >
-              {cargando ? '🔄 Generando...' : '✨ Generar Mi Menú del Día'}
-            </button>
-          </div>
-        </div>
-
-        {/* Estados: Cargando, Error o Menú */}
-        {error && <ErrorMessage />}
-        {cargando && <Cargando />}
-        {menu && <MenuGenerado />}
-        
-        {/* Placeholder inicial */}
+                {/* Placeholder inicial */}
         {!cargando && !menu && !error && (
           <div className="menu-placeholder">
             <div className="placeholder-content">
@@ -402,6 +379,30 @@ const NutricionIA = () => {
             </div>
           </div>
         )}
+        <div className="section-header">
+          <h2>🍽️ Da clic para probar nuestro menú del día!</h2>
+          <p className="section-description">
+            Alimentate saludadablemente con recetas sencillas diseñadas para ti
+          </p>
+          
+          {/* BOTÓN PRINCIPAL - AQUÍ SE HACE EL LLAMADO */}
+          <div className="menu-acciones">
+            <button 
+              className="btn-generar-menu"
+              onClick={generarMenu}
+              disabled={cargando}
+            >
+              {cargando ? '🔄 Generando...' : '✨ Generar Mi Menú del Día'}
+            </button>
+          </div>
+        </div>
+
+        {/* Estados: Cargando, Error o Menú */}
+        {error && <ErrorMessage />}
+        {cargando && <Cargando />}
+        {menu && <MenuGenerado />}
+        
+
       </section>
 
       {/* SECCIÓN 3: Información adicional */}

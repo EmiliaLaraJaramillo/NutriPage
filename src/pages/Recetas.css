@@ -163,3 +163,91 @@
   color: #2e7d32;
   margin-bottom: 1rem;
 }
+
+
+/* ================= GRID DE RECETAS ================= */
+.recetas-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ================= TARJETA MINI ================= */
+.receta-card-mini {
+  background: linear-gradient(135deg, #f1f8e9, #ffffff);
+  border-radius: 16px;
+  padding: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.receta-card-mini:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* ================= TEXTO ================= */
+.receta-titulo {
+  color: #2e7d32;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.receta-descripcion {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+/* ================= TAGS ================= */
+.receta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.tag-alimento {
+  background: #c8e6c9;
+  color: #1b5e20;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+.tag-alimento.extra {
+  background: #aed581;
+  font-weight: bold;
+}
+
+/* ================= BENEFICIOS MINI ================= */
+.mini-beneficios {
+  background: #f1f8e9;
+  border-radius: 10px;
+  padding: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.mini-beneficios ul {
+  padding-left: 1rem;
+  margin: 0.3rem 0 0;
+}
+
+.mini-beneficios li {
+  margin-bottom: 0.2rem;
+}
+
+/* ================= VER MÁS ================= */
+.ver-mas {
+  margin-top: 0.8rem;
+  text-align: right;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2e7d32;
+}

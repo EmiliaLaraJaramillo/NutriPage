@@ -817,6 +817,166 @@
   margin: 0;
 }
 
+
+/* Estilos para el placeholder del menú */
+.menu-placeholder {
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.menu-placeholder:hover {
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.1);
+  transform: translateY(-5px);
+}
+
+.placeholder-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.placeholder-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.menu-placeholder h3 {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.menu-placeholder p {
+  color: #64748b;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilos para las comidas preview */
+.comidas-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.comida-preview {
+  background: white;
+  border-radius: 18px;
+  padding: 1.8rem 1.5rem;
+  text-align: left;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.comida-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 4px 0 0 4px;
+}
+
+.comida-preview:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.1);
+}
+
+.hora-preview {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #6366f1;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  background: #e0e7ff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+}
+
+.comida-preview h4 {
+  color: #1e293b;
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+}
+
+.comida-preview p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Efecto para diferenciar las comidas por color */
+.comida-preview:nth-child(1) .hora-preview { background: #fef3c7; color: #d97706; }
+.comida-preview:nth-child(2) .hora-preview { background: #dcfce7; color: #16a34a; }
+.comida-preview:nth-child(3) .hora-preview { background: #fce7f3; color: #db2777; }
+
+.comida-preview:nth-child(1)::before { background: linear-gradient(180deg, #f59e0b, #d97706); }
+.comida-preview:nth-child(2)::before { background: linear-gradient(180deg, #10b981, #059669); }
+.comida-preview:nth-child(3)::before { background: linear-gradient(180deg, #ec4899, #db2777); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-placeholder {
+    padding: 2rem 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .menu-placeholder h3 {
+    font-size: 1.6rem;
+  }
+  
+  .menu-placeholder p {
+    font-size: 1rem;
+  }
+  
+  .comidas-preview {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Animación de aparición */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-placeholder {
+  animation: fadeInUp 0.6s ease-out;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .hero-title {
