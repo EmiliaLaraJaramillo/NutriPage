@@ -1,199 +1,412 @@
-/* ================================
-   ESTILO PÁGINA BIENESTAR (DELUXE COLOR REFORZADO)
-================================= */
+/* src/pages/Bienestar.css */
 
 .bienestar-page {
-  background-color: #fff7ea;
-  color: #4a2a14;
-  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* ================= HERO ================= */
-
+/* ============= HERO SECTION ============= */
 .bienestar-hero {
   position: relative;
-  height: 75vh;
-  background-size: cover !important;
-  background-position: center top;
-  background-repeat: no-repeat !important;
+  height: 60vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  filter: contrast(1.07) saturate(1.06);
+  text-align: center;
+  color: white;
+  padding: 20px;
 }
 
-.bienestar-hero::after {
-  content: "";
+.bienestar-hero::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.58)
-  );
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .bienestar-hero-content {
   position: relative;
-  z-index: 3;
-  text-align: center;
-  color: #fff;
-  padding: 0 1rem;
+  z-index: 2;
+  max-width: 800px;
 }
 
-/* ================= FLECHAS ================= */
+.bienestar-pill {
+  display: inline-block;
+  background: rgba(76, 175, 80, 0.9);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.bienestar-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bienestar-subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
 
 .bienestar-flechas {
   position: absolute;
-  bottom: 3.4rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
+  bottom: 30px;
+  left: 0;
+  right: 0;
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 20px;
+  z-index: 3;
 }
 
 .flecha {
-  border: 2px solid rgba(255, 255, 255, 0.65);
-  background: rgba(0, 0, 0, 0.38);
-  color: #fff;
-  width: 54px;
-  height: 54px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.5rem;
   cursor: pointer;
-  font-weight: 900;
-  font-size: 1.38rem;
-  transition: 0.28s ease-in-out;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(9px);
+  transition: all 0.3s ease;
 }
 
 .flecha:hover {
-  background: rgba(255, 255, 255, 0.78);
-  color: #5a3511;
-  transform: translateY(-3px) scale(1.12);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55);
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
 }
 
-/* ================= SECCIÓN INFO ================= */
-
+/* ============= MAIN SECTIONS ============= */
 .bienestar-section {
-  background: #fff7ea;
-  padding: 4.2rem 1.5rem 5.2rem;
-  border-top: 2px solid #e4ccb0;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .bienestar-section h2 {
   text-align: center;
-  font-size: 2.45rem;
-  font-weight: 800;
-  color: #5c3815;
-  margin-bottom: 0.8rem;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.bienestar-section h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: #4CAF50;
+  margin: 10px auto 30px;
+  border-radius: 2px;
 }
 
 .bienestar-intro {
   text-align: center;
-  max-width: 760px;
-  margin: 0 auto 2.8rem;
-  font-size: 1.12rem;
-  color: #4a2a14;
-  line-height: 1.55;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
 }
 
-/* ================= TARJETAS PREMIUM + COLOR ================= */
-
-.bienestar-grid {
+/* ============= PLATO EQUILIBRADO ============= */
+.plato-equilibrado-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-  gap: 2.4rem;
-  padding: 0 1rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
-/* 🎨 COLOR reforzado para resaltar */
-.bienestar-card {
-  background: linear-gradient(145deg, #ffeec8, #f2c98d); /* tono maíz - cálido */
-  border-radius: 20px;
-  padding: 2rem 1.6rem;
-  border: 2px solid #bf7729;
-  box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.18),
-    inset 0 0 8px rgba(255, 255, 255, 0.55);
+.plato-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #4CAF50;
+  transition: transform 0.3s ease;
+}
+
+.plato-card:hover {
+  transform: translateY(-5px);
+}
+
+.plato-header {
   text-align: center;
-  transition: 0.35s ease;
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
 }
 
-.bienestar-card .icono {
-  font-size: 2.6rem;
-  margin-bottom: 0.75rem;
+.plato-header .icono {
+  font-size: 2.5rem;
   display: block;
-  opacity: 0.95;
+  margin-bottom: 10px;
 }
 
-.bienestar-card h3 {
-  font-size: 1.38rem;
-  font-weight: 800;
-  color: #4a2a14;
-  margin-bottom: 0.7rem;
-  letter-spacing: 0.45px;
+.plato-header h3 {
+  color: #2c3e50;
+  margin: 10px 0 5px;
+  font-size: 1.8rem;
 }
 
-.bienestar-card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 7px;
-  background: linear-gradient(to right, #c37a3a, #b5651e, #c37a3a);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+.plato-horario {
+  color: #7f8c8d;
+  font-style: italic;
+  margin: 0;
 }
 
-/* HOVER vibrante pero elegante */
-.bienestar-card:hover {
-  transform: translateY(-12px) scale(1.05);
-  box-shadow:
-    0 24px 55px rgba(0, 0, 0, 0.22),
-    inset 0 0 16px rgba(255, 255, 255, 0.7);
-  border-color: #e3a65e;
-  background: linear-gradient(145deg, #ffe7b1, #efbb78);
+.plato-content h4 {
+  color: #27ae60;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
 }
 
-.bienestar-card ul {
+.plato-content ul {
   list-style: none;
   padding: 0;
-  margin-top: 0.9rem;
 }
 
-.bienestar-card li {
-  margin-bottom: 0.6rem;
-  font-size: 1.1rem;
-  color: #4a2a14;
-  line-height: 1.52;
+.plato-content li {
+  margin-bottom: 12px;
+  padding-left: 25px;
+  position: relative;
 }
 
-/* ================= RESPONSIVE ================= */
+.plato-content li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #27ae60;
+  font-weight: bold;
+}
 
+.plato-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.mitad-verde, .cuarto-proteina, .cuarto-granos {
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.mitad-verde {
+  background: rgba(46, 204, 113, 0.15);
+  border-left: 4px solid #2ecc71;
+}
+
+.cuarto-proteina {
+  background: rgba(52, 152, 219, 0.15);
+  border-left: 4px solid #3498db;
+}
+
+.cuarto-granos {
+  background: rgba(241, 196, 15, 0.15);
+  border-left: 4px solid #f1c40f;
+}
+
+.consejo {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  border-left: 4px solid #9b59b6;
+}
+
+/* ============= INFO CARDS ============= */
+.bienestar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.info-card {
+  border-radius: 15px;
+  padding: 30px;
+  color: white;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.danger-card {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.success-card {
+  background: linear-gradient(135deg, #27ae60, #219a52);
+}
+
+.protein-card {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.info-card .icono {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.info-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.card-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.card-content li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.card-content li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+}
+
+.consejo-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ============= CONSEJO FINAL ============= */
+.consejo-final {
+  background: linear-gradient(135deg, #1a5276, #154360);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contenedor-consejo {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.icono-grande {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.consejo-final h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.consejo-final p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.frase-destacada {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 40px;
+  border-left: 5px solid #f1c40f;
+}
+
+.frase-destacada p {
+  font-size: 1.4rem;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ============= RESPONSIVE ============= */
 @media (max-width: 768px) {
+  .bienestar-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .bienestar-subtitle {
+    font-size: 1rem;
+  }
+  
+  .bienestar-section h2 {
+    font-size: 2rem;
+  }
+  
+  .plato-equilibrado-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .bienestar-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .consejo-final h2 {
+    font-size: 2rem;
+  }
+  
+  .frase-destacada p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
   .bienestar-hero {
-    height: 70vh;
+    height: 50vh;
+    min-height: 300px;
   }
-
-  .bienestar-flechas {
-    bottom: 1.8rem;
+  
+  .bienestar-pill {
+    font-size: 0.8rem;
+    padding: 6px 15px;
   }
-
+  
+  .plato-card,
+  .info-card {
+    padding: 20px 15px;
+  }
+  
   .flecha {
-    width: 42px;
-    height: 42px;
-    font-size: 1.1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 }
